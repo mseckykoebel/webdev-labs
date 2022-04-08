@@ -11,6 +11,7 @@ from pprint import pprint
 
 # initializes flask app:
 app = Flask(__name__)
+app.config['TEMPLATES_AUTO_RELOAD'] = True
 
 #########################
 # some global variables #
