@@ -1,3 +1,4 @@
+from re import search
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -55,8 +56,10 @@ def exercise2():
 @app.route("/restaurant-data/")
 @app.route("/restaurant-data")
 def exercise3():
+    args = request.args;
     search_term = "pizza"
-    location = "Evanston, Il"
+    location = args.get('location')
+    search_term = args.get('term')
     url = "https://www.apitutor.org/yelp/simple/v3/businesses/search?location={0}&term={1}".format(
         location, search_term
     )
